@@ -73,20 +73,30 @@ body {
 
 #wins{
   height: 10%;
+  font-size: 30px;
 }
 
 ul {
   list-style: none;
-  display: in
+  display: inline;
+  font-size: 30px;
 }
+
+li {
+  font-size: 30px;
+}
+
 #guessesremaining {
   height: 10%;
+  font-size: 30px;
 }
 
 #currentWord {
   height: 20%;
+  padding-top: 30px;
 }
 
 #letterGuessed {
   height: 20%;
+  padding-top: 30px;
 }
