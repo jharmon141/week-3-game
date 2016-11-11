@@ -80,6 +80,7 @@ ul {
   list-style: none;
   display: inline;
   font-size: 30px;
+  margin: auto;
 }
 
 li {
