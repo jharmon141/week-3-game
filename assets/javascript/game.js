@@ -73,14 +73,18 @@ var play = document.onkeyup = function(event) {
         };
 
         if (tries == 0) {
-            alert("You lose!" + '\n' + "The correct word was: " + selectedWord.toUpperCase());
-            play();
+            setTimeout(function() {
+                alert("You lose!" + '\n' + "The correct word was: " + selectedWord.toUpperCase());
+                play();
+            }, 500);
         };
 
-        if (displayWord.toString() === lettersOfWord.toString()){
-            alert("You win!" + '\n' + "The correct word was: " + selectedWord.toUpperCase());
-            wins += 1;
-            play();
+        if (displayWord.toString() === lettersOfWord.toString()) {
+            setTimeout(function() {
+                alert("You win!" + '\n' + "The correct word was: " + selectedWord.toUpperCase());
+                wins += 1;
+                play();
+            }, 500);
         };
     };
 };
