@@ -1,4 +1,4 @@
-var words = ["direwolf", "stark", "bolton", "targaryen", "spider", "dorne", "hodor", "ice", "winterfell", "westeros", "dothraki", "dragon", "lannister", "tyrell", "bravos", "essos", "pentos", "stoneheart", "twincest"];
+var words = ["direwolf", "stark", "bolton", "targaryen", "spider", "dorne", "hodor", "ice", "winterfell", "westeros", "dothraki", "dragon", "lannister", "tyrell", "braavos", "essos", "pentos", "stoneheart", "twincest", "connington", "snow", "gendry", "joffrey", "baratheon", "tyrion", "wall", "bastard", "riverrun", "highgarden", "pyke", "astapor", "qarth", "martell", "giantsbane", "greyjoy", "maester"];
 var selectedWord = "";
 var userInput = "";
 var wins = 0;
@@ -11,7 +11,6 @@ var play = document.onkeyup = function(event) {
     //selects random word from word bank
     var generateWord = function() {
         selectedWord = words[Math.floor(Math.random() * words.length)];
-        console.log(selectedWord);
     };
 
     //turns selected word into array of letters
@@ -59,8 +58,6 @@ var play = document.onkeyup = function(event) {
                 //replaces dash with letter
                 displayWord[i] = x;
                 var y = x;
-                console.log(displayWord);
-                console.log(lettersOfWord);
                 document.getElementById("currentWord").innerHTML = displayWord.join('  ');
             };
         };
@@ -76,6 +73,7 @@ var play = document.onkeyup = function(event) {
         };
 
         if (tries == 0) {
+            alert("You lose!" + '\n' + "The correct word was: " + selectedWord.toUpperCase())
             play();
         };
 
