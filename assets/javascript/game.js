@@ -1,34 +1,35 @@
 var words = ["direwolf", "stark", "bolton", "targaryen", "spider", "dorne", "hodor", "ice", "winterfell", "westeros", "dothraki", "dragon", "lannister", "tyrell", "bravos", "essos", "pentos", "stoneheart", "twincest"];
 var selectedWord = "";
-var lettersOfWord = [];
-var displayWord = [];
 var userInput = "";
 var wins = 0;
 
 var li = document.getElementsByClassName('letter');
 
-//selects random word from word bank
-var generateWord = function() {
-    selectedWord = words[Math.floor(Math.random() * words.length)];
-    console.log(selectedWord);
-};
-
-//turns selected word into array of letters
-var setLettersOfWord = function() {
-    lettersOfWord = selectedWord.split('');
-}
-
-//displays letters of selected word as dashes
-var generateDisplayWord = function() {
-    for (var i = 0; i < selectedWord.length; i++) {
-        displayWord[i] = "_";
-    };
-};
-
 //the game function
 var play = document.onkeyup = function(event) {
-    var usedLetters = [];
+
+    //selects random word from word bank
+    var generateWord = function() {
+        selectedWord = words[Math.floor(Math.random() * words.length)];
+        console.log(selectedWord);
+    };
+
+    //turns selected word into array of letters
+    var setLettersOfWord = function() {
+        lettersOfWord = selectedWord.split('');
+    };
+
+    //displays letters of selected word as dashes
+    var generateDisplayWord = function() {
+        for (var i = 0; i < selectedWord.length; i++) {
+            displayWord[i] = "_";
+        };
+    };
+
     var alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    var usedLetters = [];
+    var lettersOfWord = [];
+    var displayWord = [];
     generateWord();
     setLettersOfWord();
     generateDisplayWord();
@@ -45,22 +46,22 @@ var play = document.onkeyup = function(event) {
         var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
         //pull letter from alphabet and set as new variable (x)
-        for (var i = 0; i < alphabet.length; i++){
-          if (userGuess == alphabet[i]){
-            var x = alphabet[i];
-            alphabet.splice(i, 1);
-            console.log(alphabet);
-          };
+        for (var i = 0; i < alphabet.length; i++) {
+            if (userGuess == alphabet[i]) {
+                var x = alphabet[i];
+                alphabet.splice(i, 1);
+            };
         };
 
         //loops through lettersOfWord to determine if userGuess (now var x) is a letter in the word
         for (var i = 0; i < lettersOfWord.length; i++) {
-            if (lettersOfWord[i] == x){
+            if (lettersOfWord[i] == x) {
                 //replaces dash with letter
-              displayWord[i] === lettersOfWord[i];
-              var y = x;
-              console.log(displayWord[i]);
-              document.getElementById("currentWord").innerHTML = displayWord.join('  ');
+                displayWord[i] = x;
+                var y = x;
+                console.log(displayWord);
+                console.log(lettersOfWord);
+                document.getElementById("currentWord").innerHTML = displayWord.join('  ');
             };
         };
 
@@ -74,13 +75,13 @@ var play = document.onkeyup = function(event) {
 
         };
 
-        if (tries == 0){
-        play();
+        if (tries == 0) {
+            play();
         };
 
-        if (lettersOfWord === displayWord) {
-        wins++;
-        play();
+        if (displayWord.toString() === lettersOfWord.toString()){
+            wins += 1;
+            play();
         };
     };
 };
