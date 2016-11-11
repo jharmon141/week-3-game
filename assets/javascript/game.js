@@ -73,11 +73,12 @@ var play = document.onkeyup = function(event) {
         };
 
         if (tries == 0) {
-            alert("You lose!" + '\n' + "The correct word was: " + selectedWord.toUpperCase())
+            alert("You lose!" + '\n' + "The correct word was: " + selectedWord.toUpperCase());
             play();
         };
 
         if (displayWord.toString() === lettersOfWord.toString()){
+            alert("You win!" + '\n' + "The correct word was: " + selectedWord.toUpperCase());
             wins += 1;
             play();
         };
