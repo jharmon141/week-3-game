@@ -1,4 +1,4 @@
-var words = ["direwolf", "stark", "bolton", "targaryen", "spider", "dorne", "hodor", "ice", "winterfell", "westeros", "dothraki", "dragon", "lannister", "tyrell", "braavos", "essos", "pentos", "stoneheart", "twincest", "connington", "snow", "gendry", "joffrey", "baratheon", "tyrion", "wall", "bastard", "riverrun", "highgarden", "pyke", "astapor", "qarth", "martell", "giantsbane", "greyjoy", "maester"];
+var words = ["direwolf", "stark", "bolton", "targaryen", "spider", "dorne", "hodor", "ice", "winterfell", "westeros", "dothraki", "dragon", "lannister", "tyrell", "braavos", "essos", "pentos", "stoneheart", "twincest", "connington", "snow", "gendry", "joffrey", "baratheon", "tyrion", "wall", "bastard", "riverrun", "highgarden", "pyke", "astapor", "qarth", "martell", "giantsbane", "greyjoy", "maester", "harrenhal", "jaqen", "blackfish"];
 var selectedWord = "";
 var userInput = "";
 var wins = 0;
@@ -74,7 +74,7 @@ var play = document.onkeyup = function(event) {
 
         if (tries == 0) {
             setTimeout(function() {
-                alert("You lose!" + '\n' + "The correct word was: " + selectedWord.toUpperCase());
+                alert("You lose!" + '\n' + "The correct word was: " + selectedWord.toUpperCase() + '\n' + "Click OK to play again");
                 play();
             }, 500);
         };
@@ -82,7 +82,7 @@ var play = document.onkeyup = function(event) {
         if (displayWord.toString() === lettersOfWord.toString()) {
             setTimeout(function() {
                 alert("You win!" + '\n' + "The correct word was: " + selectedWord.toUpperCase());
-                wins += 1;
+                wins++;
                 play();
             }, 500);
         };
